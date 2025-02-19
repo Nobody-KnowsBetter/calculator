@@ -64,7 +64,8 @@
             background: #f1c40f;
         }
         .history-container {
-            margin-top: 20px;
+            display: none;
+            margin-top: 10px;
             background: #95a5a6;
             padding: 10px;
             border-radius: 5px;
@@ -76,6 +77,7 @@
 </head>
 <body>
     <div class="calculator">
+        <div class="history-container" id="history"></div>
         <input type="text" class="display" id="display" disabled>
         <div class="buttons">
             <button onclick="clearDisplay()" class="clear">C</button>
@@ -94,10 +96,11 @@
             <button onclick="appendValue('2')">2</button>
             <button onclick="appendValue('3')">3</button>
             <button onclick="calculate()" class="equal">=</button>
+            <button onclick="calculateSquareRoot()">√</button>
             <button onclick="appendValue('0')">0</button>
+            <button onclick="calculateSquare()">x²</button>
             <button onclick="showHistory()" class="history">HIS</button>
         </div>
-        <div class="history-container" id="history"></div>
     </div>
 
     <script>
@@ -126,6 +129,22 @@
             } catch (error) {
                 alert("Invalid Input");
             }
+        }
+
+        function calculateSquareRoot() {
+            let display = document.getElementById("display");
+            let value = parseFloat(display.value);
+            if (value >= 0) {
+                display.value = Math.sqrt(value);
+            } else {
+                alert("Invalid Input for Square Root");
+            }
+        }
+
+        function calculateSquare() {
+            let display = document.getElementById("display");
+            let value = parseFloat(display.value);
+            display.value = value * value;
         }
 
         function updateHistory() {
