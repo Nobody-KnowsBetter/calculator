@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Calculator</title>
+    <title>Calculator</title>
     <style>
         body {
             display: flex;
@@ -31,6 +31,17 @@
             background: #ecf0f1;
             color: #2c3e50;
             border-radius: 5px;
+        }
+        .history-container {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background: #95a5a6;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
         }
         .buttons {
             display: grid;
@@ -63,22 +74,12 @@
         .history {
             background: #f1c40f;
         }
-        .history-container {
-            display: none;
-            margin-top: 10px;
-            background: #95a5a6;
-            padding: 10px;
-            border-radius: 5px;
-            max-height: 150px;
-            overflow-y: auto;
-            text-align: left;
-        }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <div class="history-container" id="history"></div>
         <input type="text" class="display" id="display" disabled>
+        <div class="history-container" id="history"></div>
         <div class="buttons">
             <button onclick="clearDisplay()" class="clear">C</button>
             <button onclick="deleteLast()" class="delete">DEL</button>
